@@ -1,0 +1,13 @@
+experiment,algorithm,route,goal_reached,route_valid,unsafe_route,route_cost,execution_time_ms,nodes_expanded,score,unknown_crowd_information,uncertainty_note
+E1_Normal,BFS,A -> B -> P -> G1,True,True,False,3.0,0.02616900000163014,7,95.5,,All configured crowd observations known.
+E1_Normal,A*,A -> B -> P -> G1,True,True,False,3.0,0.0348519999988639,7,95.5,,All configured crowd observations known.
+E2_Fire_Blocked_Corridor,BFS,A -> L -> C -> P -> G1,True,True,False,4.0,0.012888999997073824,7,94.0,,All configured crowd observations known.
+E2_Fire_Blocked_Corridor,A*,A -> L -> C -> P -> G1,True,True,False,4.0,0.018899000004068967,7,94.0,,All configured crowd observations known.
+E3_Crowded_Main_Gate,BFS,A -> B -> P -> G1,True,True,False,3.0,0.009103000003563011,7,95.5,,All configured crowd observations known.
+E3_Crowded_Main_Gate,A*,A -> B -> P -> G2,True,True,False,3.0,0.07086700000513702,7,95.49,,All configured crowd observations known.
+E4_Restricted_Block_B,BFS,A -> L -> C -> P -> G1,True,True,False,4.0,0.008743000002198187,6,94.0,,All configured crowd observations known.
+E4_Restricted_Block_B,A*,A -> L -> C -> P -> G1,True,True,False,4.0,0.013791000000651366,6,94.0,,All configured crowd observations known.
+E5_Partially_Observable_Crowd,BFS,A -> B -> P -> G1,True,True,False,3.0,0.008442999998692358,7,95.5,G2,Crowd status unknown at: G2
+E5_Partially_Observable_Crowd,A*,A -> B -> P -> G1,True,True,False,3.0,0.015974000000085198,7,95.5,G2,Crowd status unknown at: G2
+E6_Dynamic_Exit_Closure,BFS,A -> B -> P -> G2,True,True,False,3.0,0.008952999998257383,7,95.5,,All configured crowd observations known.
+E6_Dynamic_Exit_Closure,A*,A -> B -> P -> G2,True,True,False,3.0,0.015633000003845154,7,95.5,,All configured crowd observations known.
