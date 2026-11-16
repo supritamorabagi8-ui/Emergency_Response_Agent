@@ -70,13 +70,34 @@ def inject_custom_css():
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
         }
 
-        /* Global Text Contrast Rules - Ensure crisp white readability */
-        p, span, label, div, li, strong, b {
+        /* Scoped text contrast - preserve component-specific colors */
+        .stApp {
             color: #FFFFFF;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        .stApp h1,
+        .stApp h2,
+        .stApp h3,
+        .stApp h4,
+        .stApp h5,
+        .stApp h6 {
             color: #FFFFFF !important;
+        }
+
+        .stApp p,
+        .stApp li,
+        .stApp label,
+        .stApp strong,
+        .stApp b {
+            color: inherit;
+        }
+
+        .stApp h1,
+        .stApp h2,
+        .stApp h3,
+        .stApp h4,
+        .stApp h5,
+        .stApp h6 {
             font-weight: 700 !important;
         }
 
@@ -142,13 +163,16 @@ def inject_custom_css():
             width: 7px;
             height: 7px;
         }
+
         ::-webkit-scrollbar-track {
             background: #080511;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #30105A;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #8B5CF6;
         }
