@@ -72,7 +72,7 @@ def render_reports_view():
     audit_logs = st.session_state.get("audit_logs", [])
     if audit_logs:
         df_audit = pd.DataFrame(audit_logs)
-        st.dataframe(df_audit, width="stretch")
+        st.dataframe(df_audit, use_container_width=True)
         csv_audit = df_audit.to_csv(index=False).encode("utf-8")
         st.download_button(
             label="⬇️ DOWNLOAD SYSTEM AUDIT LOG (CSV)",

@@ -64,7 +64,7 @@ def render_settings_view():
     else:
         checks.append(("Benchmark Experiment Data", "performance/experiment_results.csv", "MISSING", "🟠 File Not Found"))
 
-    st.dataframe(pd.DataFrame(checks, columns=["Subsystem", "Module Target", "State", "Diagnostic Message"]), width="stretch")
+    st.dataframe(pd.DataFrame(checks, columns=["Subsystem", "Module Target", "State", "Diagnostic Message"]), use_container_width=True)
 
     st.markdown("<hr style='border-color:#3A2854; margin:22px 0;'>", unsafe_allow_html=True)
 

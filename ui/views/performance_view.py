@@ -64,7 +64,7 @@ def render_performance_view():
             yaxis=dict(tickfont=dict(color="#FFFFFF")),
             margin=dict(l=20, r=20, t=40, b=50),
         )
-        st.plotly_chart(fig_cost, width="stretch")
+        st.plotly_chart(fig_cost, use_container_width=True)
 
     with c2:
         # Execution Latency Comparison
@@ -86,7 +86,7 @@ def render_performance_view():
             yaxis=dict(tickfont=dict(color="#FFFFFF")),
             margin=dict(l=20, r=20, t=40, b=50),
         )
-        st.plotly_chart(fig_time, width="stretch")
+        st.plotly_chart(fig_time, use_container_width=True)
 
     # Nodes Expanded Search Space
     st.markdown("### 🔍 Search Space Complexity (Nodes Expanded)")
@@ -108,10 +108,10 @@ def render_performance_view():
         yaxis=dict(tickfont=dict(color="#FFFFFF")),
         margin=dict(l=20, r=20, t=40, b=20),
     )
-    st.plotly_chart(fig_nodes, width="stretch")
+    st.plotly_chart(fig_nodes, use_container_width=True)
 
     # Benchmark Data Table
     st.markdown("### 📋 All 12 Benchmark Experiment Records")
-    st.dataframe(df, width="stretch")
+    st.dataframe(df, use_container_width=True)
 
     render_disclaimer()

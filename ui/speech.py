@@ -42,18 +42,18 @@ def render_voice_announcer(text: str, lang: str = "en-US", auto_play: bool = Fal
     Runs client-side in the user's browser with zero external API calls.
     """
     speech_js = f"""
-    <div style="background:#0a192f; border:1px solid #1e3a5f; border-radius:10px; padding:14px; margin-top:12px;">
-        <div style="font-size:13px; font-weight:700; color:#38bdf8; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+    <div style="background:#17102A; border:1px solid #3A2854; border-radius:12px; padding:16px; margin-top:12px; box-shadow:0 4px 18px rgba(0,0,0,0.35);">
+        <div style="font-size:13px; font-weight:700; color:#E879F9; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
             📢 VOICE ANNOUNCEMENT SYSTEM ({'ಕನ್ನಡ' if 'kn' in lang else 'ENGLISH'})
         </div>
-        <p style="font-size:14px; color:#e2e8f0; margin-bottom:12px; font-style:italic;">
+        <p style="font-size:13.5px; color:#FFFFFF; margin-bottom:12px; font-style:italic; line-height:1.5;">
             "{text}"
         </p>
         <div style="display:flex; gap:10px;">
-            <button onclick="playAnnouncement()" style="background:#0284c7; color:white; border:none; border-radius:6px; padding:6px 14px; font-weight:600; cursor:pointer;">
+            <button onclick="playAnnouncement()" style="background:linear-gradient(135deg, #8B5CF6, #A855F7); color:#FFFFFF; border:none; border-radius:8px; padding:8px 16px; font-weight:700; font-size:12.5px; cursor:pointer;">
                 ▶️ Play Announcement
             </button>
-            <button onclick="stopAnnouncement()" style="background:#475569; color:white; border:none; border-radius:6px; padding:6px 14px; font-weight:600; cursor:pointer;">
+            <button onclick="stopAnnouncement()" style="background:#30105A; color:#FFFFFF; border:1px solid #3A2854; border-radius:8px; padding:8px 16px; font-weight:600; font-size:12.5px; cursor:pointer;">
                 ⏹️ Stop
             </button>
         </div>

@@ -135,36 +135,24 @@ def render_command_center():
         """, container=c_left)
 
     with c_right:
-        route_details_html = ""
         if last_res and last_res.get("success"):
             if astar:
-                route_details_html = f"""
-                <div style="color:#FFFFFF; font-size:14px; line-height:1.8;">
-                    <div style="margin-bottom:8px;"><strong style="color:#FFFFFF;">Recommended Safe Path:</strong> <code style="color:#A7F3D0; font-size:13.5px; font-weight:bold;">{' → '.join(astar['route'])}</code></div>
-                    <div>• <strong style="color:#FFFFFF;">Weighted Travel Cost:</strong> <span style="color:#FFFFFF;">{astar['route_cost']} units</span></div>
-                    <div>• <strong style="color:#FFFFFF;">Search Execution Time:</strong> <span style="color:#FFFFFF;">{astar['execution_time_ms']:.4f} ms</span></div>
-                    <div>• <strong style="color:#FFFFFF;">Target Exit:</strong> <strong style="color:#22C55E;">Gate {astar['route'][-1]}</strong></div>
-                    <div>• <strong style="color:#FFFFFF;">Nodes Expanded:</strong> <span style="color:#FFFFFF;">{astar['nodes_expanded']}</span></div>
-                    <div>• <strong style="color:#FFFFFF;">Composite Safety Score:</strong> <span style="color:#FFFFFF;">{astar['score']} / 100</span></div>
-                </div>
-                """
+                render_route_card(c_right, "recommended", astar, title="🟢 Active Evacuation Route", subtitle="Real-time Dispatch Status")
             elif bfs:
-                route_details_html = f"""
-                <div style="color:#FFFFFF; font-size:14px; line-height:1.8;">
-                    <div style="margin-bottom:8px;"><strong style="color:#FFFFFF;">BFS Candidate Path:</strong> <code style="color:#DDD6FE; font-size:13.5px; font-weight:bold;">{' → '.join(bfs['route'])}</code></div>
-                    <div>• <strong style="color:#FFFFFF;">Route Cost:</strong> <span style="color:#FFFFFF;">{bfs['route_cost']} units</span></div>
-                </div>
-                """
+                render_route_card(c_right, "alternative", bfs, title="🟣 Active Candidate Route (BFS)", subtitle="Real-time Dispatch Status")
             else:
-                route_details_html = "<div style='color:#EF4444; font-weight:700;'>⚠️ No safe evacuation pathway identified for current incident.</div>"
+                render_route_card(c_right, "recommended", None, title="⚠️ No Evacuation Route", subtitle="Incident Epizone Compromised")
         else:
-            route_details_html = "<div style='color:#FFFFFF; font-size:13px;'>No active route calculation in memory. Trigger an emergency analysis to plan routes.</div>"
-
-        render_html(f"""
-        <div class="glass-card">
-            <div class="card-header">📡 Current Route Status</div>
-            {route_details_html}
-        </div>
-        """, container=c_right)
+            render_html("""
+            <div class="glass-card" style="border-left: 4px solid #8B5CF6;">
+                <div class="card-header">📡 Current Route Status</div>
+                <div style="background:#100A20; border:1px solid #3A2854; border-radius:10px; padding:14px; color:#FFFFFF;">
+                    <div style="font-size:14px; font-weight:700; color:#FFFFFF; margin-bottom:6px;">No Active Route Calculation in Memory</div>
+                    <div style="font-size:12.5px; color:#B9AECF; line-height:1.6;">
+                        Simulated campus routing engine is standing by in nominal mode. Navigate to <strong>Emergency Analysis</strong> to simulate environmental incidents and generate optimal evacuation routes.
+                    </div>
+                </div>
+            </div>
+            """, container=c_right)
 
     render_disclaimer()
